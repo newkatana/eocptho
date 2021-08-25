@@ -72,7 +72,10 @@ if (isset($_POST['datasend'])) {
    // (SELECT vaccine_manufacturer,vaccine_plan_no,ref_hospital_name,count(*) as total FROM visit_immunization group by vaccine_manufacturer,ref_hospital_name,vaccine_plan_no order by vaccine_manufacturer_id)
     
 //    SELECT vaccine_manufacturer,
-// SUM(CASE when vaccine_plan_no = 1 then total else 0 end) as Dose1,
-// SUM(total) as aall
-// FROM eoc_vaccine_brand group by vaccine_manufacturer
+//    SUM(CASE when vaccine_plan_no = 1 then total else 0 end) as Dose1,
+//    SUM(CASE when vaccine_plan_no = 2 then total else 0 end) as Dose2,
+//    SUM(CASE when vaccine_plan_no = 3 then total else 0 end) as Dose3,
+//    SUM(CASE when vaccine_plan_no = 4 then total else 0 end) as Dose4,
+//     SUM(total) as totalall
+//    FROM eoc_vaccine_brand group by vaccine_manufacturer with rollup
 }
