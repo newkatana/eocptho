@@ -21,4 +21,7 @@ function percentbar($percen) { ?>
         <p class="progress-label"><?php echo number_format($percen*100,2,'.',',')."%"; ?></p>
     </div>
 </div>
-<?php } ?>
+<?php } 
+
+
+?>
