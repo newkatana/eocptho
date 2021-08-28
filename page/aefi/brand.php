@@ -10,9 +10,6 @@
 ?></h6>
 </div><hr>
 <div class="container-fluid">
-    
-</div>
-<div class="col-6">
     <table class="table table-sm">
     <thead>
         <tr>
@@ -24,9 +21,9 @@
     <tbody>
         <?php
         $sql = "SELECT vaccine_reaction_symptom_name,count(*) as total 
-                FROM immunization_aefi_observe 
-                group by vaccine_reaction_symptom_name
-                order by total desc";
+                FROM eoc_aefi_observe 
+                group by vaccine_reaction_symptom_id
+                order by vaccine_reaction_symptom_id asc";
         $query = mysqli_query($con,$sql);
         while($row = mysqli_fetch_assoc($query)){
         ?>
