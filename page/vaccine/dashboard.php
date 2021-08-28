@@ -30,7 +30,23 @@
                                 echo number_format($row['totalall'],0,'.',',')." โดส" ;
                             }
                     ?>
-                </h4></b><hr>
+                </h4></b>
+                <?php 
+                    $sql_a = "SELECT eoc_target.ref_hospital_name,eoc_target.hospital_code,SUM(target) as sTarget,
+                                SUM(Dose1) as sDose1,SUM(Dose2) as sDose2,SUM(Dose3) as sDose3,SUM(Total) as sTotal
+                                FROM eoc_target
+                                INNER JOIN eoc_vaccine_group
+                                ON eoc_vaccine_group.group_number = eoc_target.group_number and eoc_vaccine_group.hospital_code = eoc_target.hospital_code";
+                    $result_a = mysqli_query($con, $sql_a);
+                    while($row = mysqli_fetch_assoc($result_a)) { ?>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $row['sDose1']/$row['sTarget']*100; ?>%">
+                            <?php echo number_format($row['sDose1']/$row['sTarget']*100,2,'.',',')."%"; ?>
+                        </div>
+                    </div>เป้าหมาย 
+                    <?php  echo number_format($row['sDose1'], 0, '.', ',')."/".number_format($row['sTarget'], 0, '.', ',')." คน";
+                 } ?>
+                <hr>
                 <?php   $sql_b = "SELECT vaccine_manufacturer,sum(total) as totalall FROM eoc_vaccine_brand group by vaccine_manufacturer" ;
                         $query_b = mysqli_query($con,$sql_b);
                         while($row = mysqli_fetch_assoc($query_b)){

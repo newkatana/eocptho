@@ -70,16 +70,15 @@
 	          <li>
 	            <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">วัคซีน</a>
 	            <ul class="collapse list-unstyled show" id="pageSubmenu2">
-                <li><a href="index.php?page=vaccine-dashboard"><span class=""></span>ข้อมูลสรุปการฉีดวัคซีน</a></li>
-				<li><a href="index.php?page=vaccine-group"><span class=""></span>ข้อมูลสรุปกลุ่มเป้าหมาย</a></li>
-				<li><a href="index.php?page=vaccine-group608"><span class=""></span>ข้อมูลสรุปกลุ่ม608</a></li>
-                <li><a href="index.php?page=stock"><span class=""></span>ยอดวัคซีนคงเหลือ</a></li>
+					<li><a href="index.php?page=vaccine-dashboard"><span class=""></span>ข้อมูลสรุปการฉีดวัคซีน</a></li>
+					<li><a href="index.php?page=vaccine-group"><span class=""></span>ข้อมูลสรุปกลุ่มเป้าหมาย</a></li>
+					<li><a href="index.php?page=vaccine-group608"><span class=""></span>ข้อมูลสรุปกลุ่ม608</a></li>
 	            </ul>
 	          </li>
 	          <li>
 	            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">อาการไม่พึงประสงค์</a>
 	            <ul class="collapse list-unstyled show" id="pageSubmenu3">
-                <li><a href="index.php?page=aefi-index"><span class=""></span>ข้อมูล AEFI</a></li>
+                	<li><a href="index.php?page=aefi-brand"><span class=""></span>แยกตามยี่ห้อวัคซีน</a></li>
 	            </ul>
 	          </li>
 	        </ul>

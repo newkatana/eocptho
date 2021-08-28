@@ -1,10 +1,9 @@
-<br>
-<div class="">
-    อาการไม่พึงประสงค์
-</div>
-<hr>
-<div class="">
-    อาการไม่พึงประสงค์ ช่วงเวลา 30 นาที
+<div class="card p-3 border-0" style="background: linear-gradient(to right, #3333cc 0%, #0066ff 100%);">
+<h4 class="text-white">ข้อมูลอาการไม่พึงประสงค์แยกตามยี่ห้อวัคซีน จังหวัดพัทลุง</h4>
+<h6 class="text-white">ประจำวันที่ <?php echo DateThai(date("Y-m-d")); ?> เวลา 09.00 น.</h6>
+</div><hr>
+<div class="container-fluid">
+    
 </div>
 <div class="col-6">
     <table class="table table-sm">
