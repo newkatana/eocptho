@@ -1,6 +1,13 @@
 <div class="card p-3 border-0" style="background: linear-gradient(to right, #3333cc 0%, #0066ff 100%);">
 <h4 class="text-white">ข้อมูลสรุปกลุ่มเป้าหมาย 608 จังหวัดพัทลุง</h4>
-<h6 class="text-white">ประจำวันที่ <?php echo DateThai(date("Y-m-d")); ?> เวลา 09.00 น.</h6>
+<h6 class="text-white">ประจำวันที่ <?php 
+    $datadate = "SELECT max(date_end) as date FROM vac_timestamp_proc 
+    WHERE vac_timestamp_proc.table_name='eoc' and vac_timestamp_proc.proc_status='1'";
+    $query_time = mysqli_query($con,$datadate);
+    while($row = mysqli_fetch_assoc($query_time)){
+        echo DateThai(date($row['date']));
+}
+?></h6>
 </div><hr>
 <div class="my-3"><h5 class="font-weight-bold text-primary"> รวมกลุ่มเป้าหมาย 608</div>
 <div class="container-fluid">
