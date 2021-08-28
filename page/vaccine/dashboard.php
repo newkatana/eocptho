@@ -31,7 +31,7 @@
                 <b>ฉีดวัคซีนทั้งหมด
                 <h4 class="font-weight-bold text-primary">
                     <?php 
-                            $sql = "SELECT SUM(total) as totalall FROM eoc_vaccine_brand";
+                            $sql = "SELECT SUM(totala) as totalall FROM eoc_vaccine_brand";
                             $query = mysqli_query($con,$sql);
                             while($row = mysqli_fetch_assoc($query)){
                                 echo number_format($row['totalall'],0,'.',',')." โดส" ;
@@ -54,7 +54,7 @@
                     <?php  echo number_format($row['sDose1'], 0, '.', ',')."/".number_format($row['sTarget'], 0, '.', ',')." คน";
                  } ?>
                 <hr>
-                <?php   $sql_b = "SELECT vaccine_manufacturer,sum(total) as totalall FROM eoc_vaccine_brand group by vaccine_manufacturer" ;
+                <?php   $sql_b = "SELECT vaccine_manufacturer,sum(totala) as totalall FROM eoc_vaccine_brand group by vaccine_manufacturer" ;
                         $query_b = mysqli_query($con,$sql_b);
                         while($row = mysqli_fetch_assoc($query_b)){
                             echo '<b>'.$row['vaccine_manufacturer']." &nbsp".number_format($row['totalall'],0,'.',',')." &nbspโดส".'</b>';
@@ -62,7 +62,7 @@
                             
                             // ย่อย
                             $sql_c = "SELECT vaccine_manufacturer,vaccine_plan_no,
-                                SUM(total) as totalall
+                                SUM(totala) as totalall
                             FROM eoc_vaccine_brand where vaccine_manufacturer = '$vaccine_manufacturer'
                             group by vaccine_plan_no";
                             $query_c = mysqli_query($con,$sql_c);

@@ -9,32 +9,72 @@
 }
 ?></h6>
 </div><hr>
+<?php $sql_aefib = "SELECT vaccine_manufacturer_id,vaccine_manufacturer,sum(totala) 
+                        FROM eoc_vaccine_brand 
+                        GROUP BY vaccine_manufacturer_id order by vaccine_manufacturer_id";
+                    $query_aefib = mysqli_query($con,$sql_aefib);
+                    while($row = mysqli_fetch_assoc($query_aefib)){
+                     echo   $row['vaccine_manufacturer']." ".number_format($row['sum(totala)'],0,'.',',').' โดส<br>';
+                    }?>
+                    <hr>
 <div class="container-extend">
     <table class="table table-sm">
     <thead>
         <tr>
         <th scope="col">อาการ</th>
-        <th scope="col">จำนวน</th>
-        <th scope="col">ร้อยละ</th>
+        <th scope="col"style="text-align:left;">
+            ยี่ห้อวัคซีน
+            <span style="float:right;">
+                จำนวน(ร้อยละของการฉีดวัคซีนยี่ห้อนั้นๆ)
+            </span>
+        </th>
+        <th scope="col">รวม</th>
         </tr>
     </thead>
     <tbody>
-        <?php
-        $sql = "SELECT vaccine_reaction_symptom_name_th,count(*) as total 
-                FROM eoc_aefi_observe 
+    <?php $sql_aefia = "SELECT vaccine_manufacturer_id,vaccine_reaction_symptom_name_th,vaccine_reaction_symptom_id,
+                vaccine_reaction_symptom_name_en,
+                SUM(total) as total 
+                FROM eoc_aefi_observe
                 group by vaccine_reaction_symptom_id
-                order by vaccine_reaction_symptom_id asc";
-        $query = mysqli_query($con,$sql);
-        while($row = mysqli_fetch_assoc($query)){
-        ?>
+                order by total desc";
+                    $query_aefia = mysqli_query($con,$sql_aefia);
+                    $i;
+                    while($row = mysqli_fetch_assoc($query_aefia)){
+                    $i = $row['vaccine_reaction_symptom_id'];
+                        ?>
         <tr>
-            <td><?php echo $row['vaccine_reaction_symptom_name_th'];?></td>
-            <td><?php echo $row['total'];?></td>
-            <td><?php echo number_format($row['total']/20000*100,2,'.',',')."%";?></td>
+            <td><?php echo $row['vaccine_reaction_symptom_name_th'].'<br>'."(".$row['vaccine_reaction_symptom_name_en'].")"; ?></td>
+            <td>
+            <table class="table table-sm">
+                <thead>
+                </thead>
+                <tbody>
+                        <?php $sql_manu = "SELECT  eoc_aefi_observe.vaccine_manufacturer_id,eoc_aefi_observe.vaccine_manufacturer,SUM(total) as total,stotal
+                                            FROM eoc_aefi_observe
+                                            LEFT JOIN eoc_sumbrand
+                                            ON eoc_aefi_observe.vaccine_manufacturer_id = eoc_sumbrand.vaccine_manufacturer_id
+                                            where eoc_aefi_observe.vaccine_reaction_symptom_id = '$i'
+                                            group by eoc_aefi_observe.vaccine_manufacturer_id
+                                            order by eoc_aefi_observe.vaccine_manufacturer_id";
+                            $query_manu = mysqli_query($con,$sql_manu);
+                            while($rowa = mysqli_fetch_assoc($query_manu)){?>
+                        <tr>
+                            <td><?php echo $rowa['vaccine_manufacturer'];?></td>
+                            <td class="text-right"><?php echo $rowa['total']." (".number_format($rowa['total']/$rowa['stotal']*100,2,'.',',')." %".")";?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            </td>
+            <td><?php echo $row['total']; ?></td>
         </tr>
         <?php } ?>
         </tbody>
     </table>
+
+
+
 </div>
 <div>
     <?php //include 'stack-chart.php'; ?>
