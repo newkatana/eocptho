@@ -19,10 +19,13 @@
 <h6 class="text-white">ประจำวันที่ <?php 
 $sql_time = "SELECT max(date_end) as date FROM vac_timestamp_proc 
 WHERE vac_timestamp_proc.table_name='eoc' and vac_timestamp_proc.proc_status='1'";
+$query_time = mysqli_query($con,$sql_time);
+while($row = mysqli_fetch_assoc($query_time)){
+    echo DateThai(date($row['date']));
+}
+//echo "Y-m-d"));
 
-echo DateThai(date("Y-m-d"));
-
-?> เวลา 09.00 น.</h6>
+?></h6>
 </div><hr>
     <div class="row">
         <div class="col-md-4 mb-3">
