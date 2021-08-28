@@ -16,9 +16,9 @@
 <table id="queue" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
+                <th>ลำดับที่</th>
+                <th>ชื่อโรงพยาบาล</th>
+                <th>queue</th>
                 <th>Age</th>
                 <th>Start date</th>
                 <th>Salary</th>
