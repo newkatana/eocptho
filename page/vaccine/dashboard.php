@@ -23,8 +23,6 @@
     while($row = mysqli_fetch_assoc($query_time)){
         echo DateThai(date($row['date']));
 }
-//echo "Y-m-d"));
-
 ?></h6>
 </div><hr>
     <div class="row">
