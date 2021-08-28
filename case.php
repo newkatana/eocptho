@@ -13,5 +13,8 @@ switch($page){
     break;
     case "report": require 'report.php';
     break;
+    // dev got
+    case "vaccine-queue": require 'page/vaccine/queue.php';
+    break;
 }
 ?>
