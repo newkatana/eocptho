@@ -23,7 +23,6 @@
                 <th>queue</th>
                 <th>slot</th>
                 <th>รวม</th>
-                <th>เปอร์เซ็น</th>
             </tr>
         </thead>
         <tbody>
@@ -41,7 +40,6 @@
                         <td><?php echo number_format($array['queue'], 0); ?></td>
                         <td><?php echo number_format($array['slot'], 0); ?></td>
                         <td><?php echo number_format(($array['queue']+$array['slot']), 0); ?></td>
-                        <td><?php echo number_format(($array['queue']+$array['slot'])/$array['rate'], 2); ?></td>
                     </tr>
             <?php
             $i++;
@@ -57,7 +55,6 @@
                     <th>queue</th>
                     <th>slot</th>
                     <th>รวม</th>
-                    <th>เปอร์เซ็น</th>
                 </tr>
         </tfoot>
     </table>
