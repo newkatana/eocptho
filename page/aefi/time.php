@@ -18,15 +18,15 @@ $visit = array(
 	"WHERE vaccine_manufacturer_id = 7" => "Sinovac Life Sciences",
 	"WHERE vaccine_manufacturer_id = 8" => "Sinopharm");
 // echo $tableweek;
-if (isset($_POST['vacbrand'])) {
+if (isset($_get['vacbrand'])) {
 
-$vacbrand = $_POST['vacbrand'];
+$vacbrand = $_get['vacbrand'];
 
 //  echo $vacbrand;
 };
 ?>
 
-<form method="post"  name="myform" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="get"  name="myform" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <div class="row container input-group mb-3">
     <input class="d-none" name="page" value="aefi-time">
     <select class="form-select form-select-sm" name="vacbrand" id="vacbrand" >
