@@ -29,7 +29,8 @@
         <div class="col-md-4 mb-3">
             <div class="card border border-primary p-3 py-4">
                 <b>ฉีดวัคซีนทั้งหมด
-                <h4 class="font-weight-bold text-primary">
+                <div class="row px-3 d-flex justify-content-between">
+                <h4 class="font-weight-bold text-primary ">
                     <?php 
                             $sql = "SELECT SUM(totala) as totalall FROM eoc_vaccine_brand";
                             $query = mysqli_query($con,$sql);
@@ -37,7 +38,18 @@
                                 echo number_format($row['totalall'],0,'.',',')." โดส" ;
                             }
                     ?>
-                </h4></b>
+                </h4><div class="d-flex align-items-center"><span class="text-dark align-bottom">
+                <img src="images/greenup.svg" style="max-width:11px">
+                    <?php 
+                            $sql = "SELECT * FROM eoc_yesterday";
+                            $query = mysqli_query($con,$sql);
+                            while($row = mysqli_fetch_assoc($query)){
+                                echo number_format($row['yesterday'],0,'.',',')." โดส" ;
+                            }
+                    ?>
+
+                </span></div></div></b>
+    
                 <?php 
                     $sql_a = "SELECT eoc_target.ref_hospital_name,eoc_target.hospital_code,SUM(target) as sTarget,
                                 SUM(Dose1) as sDose1,SUM(Dose2) as sDose2,SUM(Dose3) as sDose3,SUM(Total) as sTotal
@@ -50,9 +62,10 @@
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $row['sDose1']/$row['sTarget']*100; ?>%">
                             <?php echo number_format($row['sDose1']/$row['sTarget']*100,2,'.',',')."%"; ?>
                         </div>
-                    </div>เป้าหมาย 
+                    </div><p class="mb-0 pb-0" style="text-align:left;">กลุ่มเป้าหมาย(100%)
+                    <span style="float:right;">
                     <?php  echo number_format($row['sDose1'], 0, '.', ',')."/".number_format($row['sTarget'], 0, '.', ',')." คน";
-                 } ?>
+                 } ?></span></p>
                 <hr>
                 <?php   $sql_b = "SELECT vaccine_manufacturer,sum(totala) as totalall FROM eoc_vaccine_brand group by vaccine_manufacturer" ;
                         $query_b = mysqli_query($con,$sql_b);
