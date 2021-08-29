@@ -77,14 +77,21 @@
 					<li><a href="index.php?page=vaccine-queue"><span class=""></span>ข้อมูลการจองวัคซีน</a></li>
 	            </ul>
 	          </li>
-	          <li>
-	            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">อาการไม่พึงประสงค์</a>
+			  <li>
+	            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">คงคลัง</a>
 	            <ul class="collapse list-unstyled show" id="pageSubmenu3">
+					<li><a href="index.php?page=inventory"><span class=""></span>วัคซีนคงเหลือ</a></li>
+	            </ul>
+	          </li>
+	          <li>
+	            <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">อาการไม่พึงประสงค์</a>
+	            <ul class="collapse list-unstyled show" id="pageSubmenu4">
                 	<li><a href="index.php?page=aefi-brand"><span class=""></span>แยกตามยี่ห้อวัคซีน</a></li>
 					<li><a href="index.php?page=aefi-time"><span class=""></span>แยกตามเวลารายงาน</a></li>
 					<li><a href="index.php?page=aefi-hos"><span class=""></span>แยกตามโรงพยาบาล</a></li>
 	            </ul>
 	          </li>
+			  
 	        </ul>
 
 	        <!-- <div class="mb-5">

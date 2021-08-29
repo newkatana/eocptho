@@ -138,12 +138,23 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
           bar: {
             horizontal: false,
             columnWidth: '70%',
-            endingShape: 'rounded'
+            endingShape: 'rounded',
+            dataLabels: {
+            position: "top" // top, center, bottom
+          }
           },
         },
         dataLabels: {
-          enabled: false
+        enabled: true,
+        formatter: function(val) {
+          return val + "%";
         },
+        offsetY: -20,
+        style: {
+          fontSize: "12px",
+          colors: ["#304758"]
+        }
+      },
         stroke: {
           show: true,
           width: 2,

@@ -89,9 +89,11 @@
         <div class="col-md-8">
                 <?php require 'page/vaccine/dash-chart/vacnum.php'; ?>
         </div>
-
-        
-    
+    </div>
+    <div class="row">
+        <div class="card-body">
+                <?php  include 'page/vaccine/dash-chart/injectbydate.php';?>
+        </div>
     </div>
     <div class="row">
         <div class="card-body">

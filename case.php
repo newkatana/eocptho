@@ -15,6 +15,8 @@ switch($page){
     break;
     case "aefi-hos": require 'page/aefi/hos.php';
     break;
+    case "inventory": require 'page/stock/inventory.php';
+    break;
     case "report": require 'report.php';
     break;
     // dev got

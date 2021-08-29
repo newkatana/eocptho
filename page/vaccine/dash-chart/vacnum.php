@@ -89,6 +89,11 @@ var options = {
           type: 'datetime',
           categories: <?=json_encode($title);?>
         },
+        title: {
+          text: 'จำนวนการฉีดวัคซีนแยกเข็ม (*สามารถคลิกลาก ย่อ-ขยาย ได้)',
+          align: 'center',
+          // offsetX: 110
+        },
         tooltip: {
           x: {
             format: 'dd/MM/yyyy'
