@@ -70,7 +70,7 @@
                     $query_aefia = mysqli_query($con,$sql_aefia);
                     while($row = mysqli_fetch_assoc($query_aefia)){ ?>
         <tr class="text-center align-middle">
-            <td class="text-left"><?php echo $row['vaccine_reaction_symptom_name_th']."<br>"." (".$row['vaccine_reaction_symptom_name_en'].")"; ?></td>
+            <td class="text-left"><?php echo $row['vaccine_reaction_symptom_name_th']." (".$row['vaccine_reaction_symptom_name_en'].")"; ?></td>
             <td class="align-middle"><?php echo number_format($row['AZ'],0,'.',','); ?></td>
             <td class="align-middle"><?php percentbar($row['AZ']/$azsum); ?></td>
             <td class="align-middle"><?php echo number_format($row['PZ'],0,'.',','); ?></td>
