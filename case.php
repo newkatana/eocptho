@@ -11,6 +11,8 @@ switch($page){
     break;
     case "aefi-brand": require 'page/aefi/brand.php';
     break;
+    case "aefi-time": require 'page/aefi/time.php';
+    break;
     case "report": require 'report.php';
     break;
     // dev got

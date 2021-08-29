@@ -81,6 +81,7 @@
 	            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">อาการไม่พึงประสงค์</a>
 	            <ul class="collapse list-unstyled show" id="pageSubmenu3">
                 	<li><a href="index.php?page=aefi-brand"><span class=""></span>แยกตามยี่ห้อวัคซีน</a></li>
+					<li><a href="index.php?page=aefi-time"><span class=""></span>แยกตามเวลารายงาน</a></li>
 	            </ul>
 	          </li>
 	        </ul>

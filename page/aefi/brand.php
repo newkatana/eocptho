@@ -30,8 +30,7 @@
                         }
                      echo   $row['vaccine_manufacturer']." ".number_format($row['sum(totala)'],0,'.',',').' โดส<br>';
                   } $totalsum = $azsum+$pzsum+$svsum+$spsum ; ?>
-                  
-                    <hr>
+<hr>
 <div class="container-extend">
 <h6 class="text-primary">ตารางแสดงอาการไม่พึงประสงค์แยกตามยี่ห้อวัคซีน (*ร้อยละ ของยอดฉีดวัคซีนแต่ละยี่ห้อ)</h6>
     <table class="table table-sm rounded table-bordered">
@@ -61,17 +60,11 @@
     <?php $sql_aefia = "SELECT  eoc_aefi_observe.vaccine_reaction_symptom_id,eoc_aefi_observe.vaccine_reaction_symptom_name_th,
                         eoc_aefi_observe.vaccine_reaction_symptom_name_en,
                         SUM(CASE WHEN eoc_aefi_observe.vaccine_manufacturer_id = 1 THEN total ELSE 0 END) AS AZ,
-                        'totalaz',
                         SUM(CASE WHEN eoc_aefi_observe.vaccine_manufacturer_id = 6 THEN total ELSE 0 END) AS PZ,
-                        'totalpz',
                         SUM(CASE WHEN eoc_aefi_observe.vaccine_manufacturer_id = 7 THEN total ELSE 0 END) AS SV,
-                        'totalsv',
                         SUM(CASE WHEN eoc_aefi_observe.vaccine_manufacturer_id = 8 THEN total ELSE 0 END) AS SP,
-                        'totalsp',
-                        SUM(total) as total,stotal
+                        SUM(total) as total
                         FROM eoc_aefi_observe
-                        LEFT JOIN eoc_sumbrand
-                        ON eoc_aefi_observe.vaccine_manufacturer_id = eoc_sumbrand.vaccine_manufacturer_id
                         group by eoc_aefi_observe.vaccine_reaction_symptom_id
                         order by total desc";
                     $query_aefia = mysqli_query($con,$sql_aefia);
@@ -101,7 +94,7 @@
 </div>
 
 <div>
-<span class="badge btn-primary">อาการอื่น ๆ</span>
+<h6 class="text-primary">อาการอื่น ๆ</h6>
     <table id="hosanother" class="table table-sm">
     <thead class="p-0">
         <tr>
