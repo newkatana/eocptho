@@ -18,9 +18,9 @@ $visit = array(
 	"WHERE vaccine_manufacturer_id = 7" => "Sinovac Life Sciences",
 	"WHERE vaccine_manufacturer_id = 8" => "Sinopharm");
 // echo $tableweek;
-if (isset($_get['vacbrand'])) {
+if (isset($_GET['vacbrand'])) {
 
-$vacbrand = $_get['vacbrand'];
+$vacbrand = $_GET['vacbrand'];
 
 //  echo $vacbrand;
 };
