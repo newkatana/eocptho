@@ -117,7 +117,7 @@ $h10747 = 0;$h11414 = 0;$h11415 = 0;$h11416 = 0;$h11417 = 0;$h11418 = 0;$h11419 
         echo '<h6 class="text-primary">'.$rowa['vaccine_manufacturer'].'<span class="text-dark"> '.number_format($rowa['sum(totala)'],0,'.',',').' โดส</span></h6>';
         ?>
     <table class="table table-sm rounded table-bordered">
-    <thead class="text-center">
+    <thead class="text-center" style="background-color:#f2f2f2;">
         <tr>
             <th scope="col" class="text-center">อาการ</th>
             <th scope="col">observe</th>

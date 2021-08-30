@@ -3,12 +3,11 @@
 require_once 'db.php';
 
 $sql1 = "SELECT immunization_date,
-SUM(CASE WHEN vaccine_manufacturer_id = 1 THEN 1 ELSE 0 END) AS vac1,
-SUM(CASE WHEN vaccine_manufacturer_id = 6 THEN 1 ELSE 0 END) AS vac6,
-SUM(CASE WHEN vaccine_manufacturer_id = 7 THEN 1 ELSE 0 END) AS vac7,
-SUM(CASE WHEN vaccine_manufacturer_id = 8 THEN 1 ELSE 0 END) AS vac8,
-count(*) AS stotal
-FROM visit_immunization GROUP BY immunization_date"; //คำสั่ง เลือกข้อมูลจากตาราง report
+SUM(CASE WHEN vaccine_manufacturer_id = 1 THEN stotal ELSE 0 END) AS vac1,
+SUM(CASE WHEN vaccine_manufacturer_id = 6 THEN stotal ELSE 0 END) AS vac6,
+SUM(CASE WHEN vaccine_manufacturer_id = 7 THEN stotal ELSE 0 END) AS vac7,
+SUM(CASE WHEN vaccine_manufacturer_id = 8 THEN stotal ELSE 0 END) AS vac8,
+sum(stotal) AS xtotal FROM eoc_injectbydate GROUP BY immunization_date"; //คำสั่ง เลือกข้อมูลจากตาราง report
 
     $result = mysqli_query($con, $sql1);
     $title = [];

@@ -72,7 +72,7 @@ $vacbrand = $_GET['vacbrand'];
 <div class="container-extend">
 <h6 class="text-primary">ตารางแสดงอาการไม่พึงประสงค์แยกตามเวลาที่เกิดอาการ (*ร้อยละ ของยอดฉีดวัคซีนแต่ละยี่ห้อ)</h6>
     <table class="table table-sm rounded table-bordered">
-    <thead class="text-center">
+    <thead class="text-center" style="background-color:#f2f2f2;">
         <tr>
             <th scope="col" class="text-center">อาการ</th>
             <th scope="col">observe</th>

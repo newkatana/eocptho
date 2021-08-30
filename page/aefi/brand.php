@@ -34,7 +34,7 @@
 <div class="container-extend">
 <h6 class="text-primary">ตารางแสดงอาการไม่พึงประสงค์แยกตามยี่ห้อวัคซีน (*ร้อยละ ของยอดฉีดวัคซีนแต่ละยี่ห้อ)</h6>
     <table class="table table-sm rounded table-bordered">
-    <thead class="text-center">
+    <thead class="text-center" style="background-color:#f2f2f2;">
         <tr>
             <th scope="col" class="text-center" rowspan="2">อาการ</th>
             <th scope="col" colspan="2">AstraZeneca</th>
