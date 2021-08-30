@@ -1,4 +1,5 @@
-<?php include 'db.php'; ?>
+<?php include 'db.php';
+date_default_timezone_set("Asia/Bangkok"); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -177,7 +178,10 @@
 			paging: false,
 			info: false,
 			searching: false,
-			buttons: [ 'copy', 'excel' ]
+			buttons: [ 'copy', {
+                extend: 'excelHtml5',
+                title: <?php $ssdate = "vaccine_inventory_date_".$sdate; echo json_encode($ssdate);?>
+            } ]
 		} );
 	
 		table.buttons().container()
@@ -191,14 +195,16 @@
 			lengthChange: false,
 			searching: false,
 			pageLength: 15,
-			buttons: [ 'copy', 'excel' ]
+			buttons: [ 'copy',{
+                extend: 'excelHtml5',
+                title: <?php $nndate = "vaccine_summary_".date("Y/m/d_H:i:s"); echo json_encode($nndate);?>
+            } ]
 		} );
 	
 		table.buttons().container()
 			.appendTo( '#invent-summary_wrapper .col-md-6:eq(0)' );
 		} );
 	</script>
-	
 
   </body>
 </html>
