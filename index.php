@@ -80,7 +80,8 @@
 			  <li>
 	            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">คงคลัง</a>
 	            <ul class="collapse list-unstyled show" id="pageSubmenu3">
-					<li><a href="index.php?page=inventory"><span class=""></span>วัคซีนคงเหลือ</a></li>
+					<li><a href="index.php?page=inventory"><span class=""></span>วัคซีนคงเหลือรายวัน</a></li>
+					<li><a href="index.php?page=inventory-summary"><span class=""></span>สรุปรวมยอดวัคซีนคงเหลือ</a></li>
 	            </ul>
 	          </li>
 	          <li>
@@ -89,6 +90,7 @@
                 	<li><a href="index.php?page=aefi-brand"><span class=""></span>แยกตามยี่ห้อวัคซีน</a></li>
 					<li><a href="index.php?page=aefi-time"><span class=""></span>แยกตามเวลารายงาน</a></li>
 					<li><a href="index.php?page=aefi-hos"><span class=""></span>แยกตามโรงพยาบาล</a></li>
+					<li><a href="index.php?page=aefi-ddc"><span class=""></span>AEFI-DDC</a></li>
 	            </ul>
 	          </li>
 			  
@@ -167,6 +169,36 @@
 			.appendTo( '#queue_wrapper .col-md-6:eq(0)' );
 		} );
 	</script>
+	<script>
+		$(document).ready(function() {
+		var table = $('#invent').DataTable( {
+			order: [],
+			lengthChange: false,
+			paging: false,
+			info: false,
+			searching: false,
+			buttons: [ 'copy', 'excel' ]
+		} );
+	
+		table.buttons().container()
+			.appendTo( '#invent_wrapper .col-md-6:eq(0)' );
+		} );
+	</script>
+	<script>
+		$(document).ready(function() {
+		var table = $('#invent-summary').DataTable( {
+			order: [],
+			lengthChange: false,
+			searching: false,
+			pageLength: 15,
+			buttons: [ 'copy', 'excel' ]
+		} );
+	
+		table.buttons().container()
+			.appendTo( '#invent-summary_wrapper .col-md-6:eq(0)' );
+		} );
+	</script>
+	
 
   </body>
 </html>
