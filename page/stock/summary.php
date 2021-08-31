@@ -34,7 +34,7 @@
             sum(vaccine_pz) as s_vaccine_pz,
             datadate 
             FROM 
-            vaccine_stock2
+            eoc_vaccine_stock
 	GROUP BY datadate ORDER BY datadate desc";
             $query_stock = mysqli_query($con,$sql_stock);
             while($row = mysqli_fetch_assoc($query_stock)){?>

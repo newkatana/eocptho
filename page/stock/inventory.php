@@ -13,7 +13,7 @@
 </div><hr>
 
 <?php 
-$sql2 = "SELECT * FROM vaccine_stock2 group by datadate order by datadate desc limit 1";
+$sql2 = "SELECT * FROM eoc_vaccine_stock group by datadate order by datadate desc limit 1";
 $query2 = mysqli_query($con,$sql2);
 while($row = mysqli_fetch_assoc($query2)){
     $sdate = $row['datadate'];
@@ -29,7 +29,7 @@ while($row = mysqli_fetch_assoc($query2)){
     <select class="form-select form-select-sm" name="sdate" id="sdate">
 					<option class="align-center" value="" selected disabled>--กรุณาเลือกวันที่--</option>
                     <?php
-                        $sql = "SELECT * FROM vaccine_stock2 group by datadate order by datadate desc";
+                        $sql = "SELECT * FROM eoc_vaccine_stock group by datadate order by datadate desc";
                         $query = mysqli_query($con,$sql);
                         while($row = mysqli_fetch_assoc($query)){
                     ?>
@@ -55,7 +55,7 @@ while($row = mysqli_fetch_assoc($query2)){
             sum(vaccine_pz) as s_vaccine_pz,
             datadate 
             FROM 
-            vaccine_stock2
+            eoc_vaccine_stock
             where datadate = '$sdate'";
             $query_stock_sum = mysqli_query($con,$sql_stock_sum);
             $vaccine_total;
@@ -75,7 +75,7 @@ while($row = mysqli_fetch_assoc($query2)){
     </thead>
     <tbody>
         <?php 
-            $sql_stock = "SELECT * FROM vaccine_stock2 WHERE datadate = '$sdate' order by number";
+            $sql_stock = "SELECT * FROM eoc_vaccine_stock WHERE datadate = '$sdate' order by number";
             $query_stock = mysqli_query($con,$sql_stock);
             while($row = mysqli_fetch_assoc($query_stock)){?>
         <tr class="text-right">
@@ -101,7 +101,7 @@ while($row = mysqli_fetch_assoc($query2)){
             sum(vaccine_pz) as s_vaccine_pz,
             datadate 
             FROM 
-            vaccine_stock2
+            eoc_vaccine_stock
             where datadate = '$sdate'";
             $query_stock_sum = mysqli_query($con,$sql_stock_sum);
             while($row = mysqli_fetch_assoc($query_stock_sum)){?>

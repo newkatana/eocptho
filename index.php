@@ -194,7 +194,7 @@ date_default_timezone_set("Asia/Bangkok"); ?>
 			order: [],
 			lengthChange: false,
 			searching: false,
-			pageLength: 15,
+			pageLength: 10,
 			buttons: [ 'copy',{
                 extend: 'excelHtml5',
                 title: <?php $nndate = "vaccine_summary_".date("Y/m/d_H:i:s"); echo json_encode($nndate);?>
