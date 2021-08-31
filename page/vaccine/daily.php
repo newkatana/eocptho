@@ -36,7 +36,6 @@
 
 <?php //echo $sdate;?>
 
-<br>
 <div class="my-3"><h5 class="font-weight-bold text-primary"> วัคซีนคงเหลือวันที่ <?php echo DateThai2($sdate); ?></div>
 <table class="table table-bordered table-sm">
     <thead class="text-center" style="background-color:#f2f2f2;">
