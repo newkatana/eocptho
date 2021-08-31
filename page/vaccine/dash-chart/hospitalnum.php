@@ -51,6 +51,7 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
   <tr>
     <th rowspan="2">โรงพยาบาล</th>
     <th rowspan="2">เป้าหมาย(คน)</th>
+    <th rowspan="2">อัตราการฉีด<br>(โดส/วัน)</th>
     <th colspan="2">เข็ม 1 (โดส)</th>
     <th colspan="2">เข็ม 2 (โดส)</th>
     <th colspan="2">เข็ม 3 (โดส)</th>
@@ -67,7 +68,7 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
 </thead>
   <tbody>
     <?php 
-    $sql_table = "SELECT eoc_target.ref_hospital_name,eoc_target.hospital_code,SUM(target) as sTarget,
+    $sql_table = "SELECT eoc_target.ref_hospital_name,eoc_target.hospital_code,SUM(target) as sTarget,eoc_target.rate,
                   SUM(Dose1) as sDose1,SUM(Dose2) as sDose2,SUM(Dose3) as sDose3,SUM(Total) as sTotal
                   FROM eoc_target
                   INNER JOIN eoc_vaccine_group
@@ -81,6 +82,7 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
                         echo 'โรงพยาบาลศรีนครินทร์';
                     }else echo $row['ref_hospital_name']; ?></td>
           <td class="text-right"><?php echo number_format($row['sTarget'], 0, '.', ','); ?></td>
+          <td class="text-right"><?php echo number_format($row['rate'], 0, '.', ','); ?></td>
           <td class="text-right"><?php echo number_format($row['sDose1'], 0, '.', ','); ?></td>
           <td class="text-right"><?php percentbar($row['sDose1']/$row['sTarget']); ?></td>
           <td class="text-right"><?php echo number_format($row['sDose2'], 0, '.', ','); ?></td>
@@ -93,7 +95,7 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
     <tbody>
     <tfooter>
     <?php 
-    $sql_table = "SELECT eoc_target.ref_hospital_name,eoc_target.hospital_code,SUM(target) as sTarget,
+    $sql_table = "SELECT eoc_target.ref_hospital_name,eoc_target.hospital_code,SUM(target) as sTarget,SUM(rate)/8 as srate,
                   SUM(Dose1) as sDose1,SUM(Dose2) as sDose2,SUM(Dose3) as sDose3,SUM(Total) as sTotal
                   FROM eoc_target
                   INNER JOIN eoc_vaccine_group
@@ -103,6 +105,7 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
         <tr class="">
           <td class="text-center"><?php echo "รวม"; ?></td>
           <td class="text-right"><?php echo number_format($row['sTarget'], 0, '.', ','); ?></td>
+          <td class="text-right"><?php echo number_format($row['srate'], 0, '.', ','); ?></td>
           <td class="text-right"><?php echo number_format($row['sDose1'], 0, '.', ','); ?></td>
           <td class="text-right"><?php percentbar($row['sDose1']/$row['sTarget']); ?></td>
           <td class="text-right"><?php echo number_format($row['sDose2'], 0, '.', ','); ?></td>

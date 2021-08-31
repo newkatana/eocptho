@@ -1,5 +1,3 @@
-<style>
-    </style>
 <div class="card p-3 border-0" style="background: linear-gradient(to right, #3333cc 0%, #0066ff 100%);">
 <h4 class="text-white">ข้อมูลสรุปกลุ่มเป้าหมายฉีดวัคซีน จังหวัดพัทลุง</h4>
 <h6 class="text-white">ประจำวันที่ <?php 

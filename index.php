@@ -76,6 +76,7 @@ date_default_timezone_set("Asia/Bangkok"); ?>
 					<li><a href="index.php?page=vaccine-group"><span class=""></span>ข้อมูลสรุปกลุ่มเป้าหมาย</a></li>
 					<li><a href="index.php?page=vaccine-group608"><span class=""></span>ข้อมูลสรุปกลุ่ม608</a></li>
 					<li><a href="index.php?page=vaccine-queue"><span class=""></span>ข้อมูลการจองวัคซีน</a></li>
+					<li><a href="index.php?page=vaccine-daily"><span class=""></span>รายงานสถานการณ์รายวัน</a></li>
 	            </ul>
 	          </li>
 			  <li>
