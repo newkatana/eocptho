@@ -117,7 +117,7 @@ date_default_timezone_set("Asia/Bangkok"); ?>
     	</nav>
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
+      <div id="content" class="p-4 p-md-5 pt-5" style="min-width : 1200px;">
                                 <?php 
                                     if(isset($_GET['page'])){
                                         $page = $_GET['page'];

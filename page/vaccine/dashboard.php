@@ -26,7 +26,7 @@
 ?></h6>
 </div><hr>
     <div class="row">
-        <div class="col-md-4 mb-3">
+        <div class="col-4 mb-3">
             <div class="card border border-primary p-3 py-4">
                 <b>ฉีดวัคซีนทั้งหมด
                 <div class="row px-3 d-flex justify-content-between">
@@ -86,7 +86,7 @@
                 ?>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-8">
                 <?php require 'page/vaccine/dash-chart/vacnum.php'; ?>
         </div>
     </div>
