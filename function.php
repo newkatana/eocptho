@@ -25,16 +25,21 @@ function DateThai($strDate)
         // return "$strDay $strMonthThai $strYear, $strHour:$strMinute";
         return "$strDay $strMonthThai $strYear";
     }
-function percentbar($percen) { ?> 
-    <div id="progressbar">
-        <div style="width: <?php
+    function percentbar($percen) { ?> 
+        <div id="progressbar">
+            <div style="width: <?php
+                if(number_format($percen*100,2,'.',',')>=100){
+                    echo '100';} else{ echo number_format($percen*100,2,'.',',');  }
+                                ?>%">
+            <p class="progress-label"><?php 
             if(number_format($percen*100,2,'.',',')>=100){
-                echo '100';} else{ echo number_format($percen*100,2,'.',',');  }
-                            ?>%">
-        <p class="progress-label"><?php echo number_format($percen*100,2,'.',',')."%"; ?></p>
+                echo '100.00';} else{
+            echo number_format($percen*100,2,'.',',');} ?>%</p>
+        </div>
     </div>
-</div>
-<?php } 
+    <?php } 
+
+
 
 
 ?>

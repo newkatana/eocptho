@@ -49,6 +49,20 @@ date_default_timezone_set("Asia/Bangkok"); ?>
 	</style>
   </head>
   <body style="font-family: 'Sarabun', sans-serif;">
+
+  <?php
+                    $process=0;
+                    $sql_process="SELECT * FROM vac_timestamp_proc 
+                    WHERE table_name='eoc' AND id = (SELECT MAX(id) as date_max FROM vac_timestamp_proc WHERE table_name='eoc')";
+                    $rs_process=mysqli_query($con,$sql_process);
+                    if(mysqli_num_rows($rs_process)>=1){
+                        $row = mysqli_fetch_assoc($rs_process);
+                        if($row['proc_status']==1)
+                            $process=1;
+                    }        
+                    if($process==1){
+
+	?>
 		
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar">
@@ -76,7 +90,6 @@ date_default_timezone_set("Asia/Bangkok"); ?>
 					<li><a href="index.php?page=vaccine-group"><span class=""></span>ข้อมูลสรุปกลุ่มเป้าหมาย</a></li>
 					<li><a href="index.php?page=vaccine-group608"><span class=""></span>ข้อมูลสรุปกลุ่ม608</a></li>
 					<li><a href="index.php?page=vaccine-queue"><span class=""></span>ข้อมูลการจองวัคซีน</a></li>
-					<li><a href="index.php?page=vaccine-daily"><span class=""></span>รายงานสถานการณ์รายวัน608</a></li>
 	            </ul>
 	          </li>
 			  <li>
@@ -84,6 +97,7 @@ date_default_timezone_set("Asia/Bangkok"); ?>
 	            <ul class="collapse list-unstyled show" id="pageSubmenu3">
 					<li><a href="index.php?page=inventory"><span class=""></span>วัคซีนคงเหลือรายวัน</a></li>
 					<li><a href="index.php?page=inventory-summary"><span class=""></span>สรุปรวมยอดวัคซีนคงเหลือ</a></li>
+					<li><a href="index.php?page=vaccine-daily"><span class=""></span>รายงานสถานการณ์รายวัน 608</a></li>
 	            </ul>
 	          </li>
 	          <li>
@@ -206,6 +220,16 @@ date_default_timezone_set("Asia/Bangkok"); ?>
 			.appendTo( '#invent-summary_wrapper .col-md-6:eq(0)' );
 		} );
 	</script>
+
+
+<?php
+                    }else{
+                        echo "<center><div class=\"parent\"><img class=\"child\" src='images/moph-logo.gif'  ></div><br></center>";
+                        echo "<center> <h5  style=\"font-family: 'Sarabun', sans-serif;\"><font color='red'>ระบบกำลังประมวลผล กรุณารอสักครู่...</font><font color='blue'> กรุณากลับมาหน้านี้อีกครั้งหลังจากระบบประมวลผลเสร็จ</font></h5></center>";
+                        // echo "<script> location.replace(\"hospital_type_vac_hdc.php\") </script>";
+
+                    }
+?>
 
   </body>
 </html>

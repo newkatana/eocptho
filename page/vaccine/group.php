@@ -1,3 +1,5 @@
+<style>
+    </style>
 <div class="card p-3 border-0" style="background: linear-gradient(to right, #3333cc 0%, #0066ff 100%);">
 <h4 class="text-white">ข้อมูลสรุปกลุ่มเป้าหมายฉีดวัคซีน จังหวัดพัทลุง</h4>
 <h6 class="text-white">ประจำวันที่ <?php 
@@ -79,7 +81,10 @@
         <?php 
                 $sql_group_c = "SELECT * FROM eoc_vaccine_group group by person_type_name order by group_number";
                 $query_group_c = mysqli_query($con,$sql_group_c);
+
+                $round=0;
                 while($row = mysqli_fetch_assoc($query_group_c)){ 
+                    $round++;
                     $i = $row['person_type_name'];
                     echo '<div class="my-3"><h5 class="font-weight-bold text-primary">'.$row['person_type_name'].'</h5></div>';?>
 
@@ -111,8 +116,11 @@
                     ON eoc_vaccine_group.group_number = eoc_target.group_number and eoc_vaccine_group.hospital_code = eoc_target.hospital_code 
                     where eoc_vaccine_group.person_type_name = '$i'
                     group by eoc_vaccine_group.ref_hospital_name  order by eoc_vaccine_group.hospital_code";
+
                     $query_group = mysqli_query($con,$sql_group);
-                    while($row = mysqli_fetch_assoc($query_group)){ ?>
+                    while($row = mysqli_fetch_assoc($query_group)){ 
+                    ?>
+                    
                 <tr class="text-right">
                     <td class="text-left"><?php 
                     if($row['ref_hospital_name']=='โรงพยาบาลศรีนครินทร์(ปัญญานันทภิขุ)'){
@@ -153,5 +161,16 @@
                 <?php   };?>
             </tfooter>
         </table>
+        
+        <div class="row">
+            <div class="card-body">
+                            <?php
+                            include 'dash-chart/hospital_type.php';
+                            ?>
+            </div>
+        </div>
+
+        <hr>
+
         <?php } ?>
     </div>
