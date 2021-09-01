@@ -1,5 +1,4 @@
-<?php include 'db.php';
-date_default_timezone_set("Asia/Bangkok"); ?>
+<?php include 'db.php';?>
 <!doctype html>
 <html lang="en">
   <head>
