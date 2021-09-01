@@ -2,10 +2,12 @@
         $query2 = mysqli_query($con,$sql2);
         while($row = mysqli_fetch_assoc($query2)){
         $sdate = $row['immunization_date'];
+        // $xdate = "AND eoc_vaccine_dategroup.immunization_date = '".$sdate."'";
                 }
         if (!empty($_GET['sdate'])) {
             $sdate = $_GET['sdate'];
-        // echo $sdate ;
+            // $xdate = "AND eoc_vaccine_dategroup.immunization_date = '".$sdate."'";
+         //echo $xdate ;
         } else  ?>
 
 <div class="card p-3 border-0" style="background: linear-gradient(to right, #3333cc 0%, #0066ff 100%);">
@@ -105,16 +107,16 @@
     </thead>
     <tbody>
         <?php 
-            $sql_stock = "SELECT 	ref_hospital_name,
-            SUM(Total) AS rate,
-            SUM(CASE WHEN group_number = 2 THEN Total ELSE 0 END) AS group2,
-                        SUM(CASE WHEN group_number = 3 THEN Total ELSE 0 END) AS group3,
-                        SUM(CASE WHEN group_number = 4 THEN Total ELSE 0 END) AS group4,
-                        SUM(CASE WHEN group_number = 8 THEN Total ELSE 0 END) AS group8,
-                        SUM(CASE WHEN group_number in (3,4,8)  THEN Total ELSE 0 END) AS stotal
-            FROM eoc_vaccine_dategroup
-            WHERE immunization_date = '$sdate'
-            GROUP BY hospital_code";
+            $sql_stock = "	SELECT TEMP2.*,TEMP1.rate,TEMP1.group2,TEMP1.group3,TEMP1.group4,TEMP1.group8,TEMP1.stotal FROM (SELECT 
+            hospital_code,ref_hospital_name,
+                        SUM(Total) AS rate,
+                        SUM(CASE WHEN group_number = 2 THEN Total ELSE 0 END) AS group2,
+                                    SUM(CASE WHEN group_number = 3 THEN Total ELSE 0 END) AS group3,
+                                    SUM(CASE WHEN group_number = 4 THEN Total ELSE 0 END) AS group4,
+                                    SUM(CASE WHEN group_number = 8 THEN Total ELSE 0 END) AS group8,
+                                    SUM(CASE WHEN group_number in (3,4,8)  THEN Total ELSE 0 END) AS stotal
+            FROM eoc_vaccine_dategroup WHERE immunization_date = '$sdate'  GROUP BY hospital_code) AS TEMP1
+            RIGHT JOIN eoc_hospital_name_code TEMP2 ON TEMP1.hospital_code=TEMP2.hospital_code";
             $query_stock = mysqli_query($con,$sql_stock);
             while($row = mysqli_fetch_assoc($query_stock)){?>
         <tr class="text-right">
@@ -124,7 +126,23 @@
             <td><?php echo number_format($row['group4'],0,'.',',') ; ?></td>
             <td><?php echo number_format($row['group8'],0,'.',',') ; ?></td>
             <td><?php echo number_format($row['stotal'],0,'.',',') ; ?></td>
-            <td><?php echo percentbar($row['stotal']/$row['rate']); ?></td>
+            <td>
+            <div id="progressbar">
+                <div style="width: <?php
+                if($row['rate']==NULL){ echo "0" ;}else{
+                    if(number_format($row['stotal']/$row['rate']*100,2,'.',',')>=100){
+                            echo '100';} else{ echo number_format($row['stotal']/$row['rate']*100,2,'.',',');  }
+                }
+                                        ?>%">
+                    <p class="progress-label"><?php 
+                if($row['rate']==0){ echo "0" ;}else{
+                    if(number_format($row['stotal']/$row['rate']*100,2,'.',',')>=100){
+                        echo '100.00';} else{
+                    echo number_format($row['stotal']/$row['rate']*100,2,'.',',');}
+                } ?>%</p>
+                </div>
+            </div>
+            </td>
         </tr>
         <?php } ?>
     </tbody>
