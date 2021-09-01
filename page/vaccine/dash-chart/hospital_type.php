@@ -27,8 +27,8 @@ group by eoc_vaccine_group.ref_hospital_name  order by eoc_vaccine_group.hospita
         
         while($row = mysqli_fetch_assoc($result)) {
             // $ref_hospital_name[] = $row['ref_hospital_name'];
-            $ref_hospital_name[] = str_replace("โรงพยาบาล","รพ.",$row['ref_hospital_name']);
-            // $ref_hospital_name[] = str_replace("โรงพยาบาล","รพ.",$ref_hospital_name[]);
+            // $ref_hospital_name[] = str_replace("โรงพยาบาล","รพ.",$row['ref_hospital_name']);
+            $ref_hospital_name[] = str_replace("โรงพยาบาลศรีนครินทร์(ปัญญานันทภิขุ)","โรงพยาบาลศรีนครินทร์",$row['ref_hospital_name']);
             $target[] = $row['sTarget'];
             $dose1[] = number_format(($row['sDose1']/$row['sTarget']*100)>100 ? '100' : ($row['sDose1']/$row['sTarget']*100) , 2, '.', ',');
             $dose2[] = number_format(($row['sDose2']/$row['sTarget']*100)>100 ? '100' : ($row['sDose2']/$row['sTarget']*100) , 2, '.', ',');

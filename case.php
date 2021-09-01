@@ -9,7 +9,7 @@ switch($page){
     break;
     case "vaccine-group608": require 'page/vaccine/group608.php';
     break;
-    case "vaccine-daily": require 'page/vaccine/daily.php';
+    case "vaccine-daily": require 'page/stock/daily.php';
     break;
     case "aefi-brand": require 'page/aefi/brand.php';
     break;

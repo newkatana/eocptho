@@ -61,7 +61,7 @@ while($row = mysqli_fetch_assoc($query2)){
             $vaccine_total;
             while($row = mysqli_fetch_assoc($query_stock_sum)){
                 $vaccine_total = number_format($row['s_instock'],0,'.',',');}?>
-<center><div class="col-md-5 col-sm-12 card m-4 pt-4 pb-3" style="background: linear-gradient(to bottom right, #0000ff 0%, #33ccff 100%">
+<center><div class="col-5 card m-4 pt-4 pb-3" style="background: linear-gradient(to bottom right, #0000ff 0%, #33ccff 100%">
     <h5 class="font-weight-bold text-white"><?php echo "ยอดวัคซีนคงเหลือ ".$vaccine_total." โดส"; ?></h5></div></center>
 <table class="table table-bordered table-sm" id="invent">
     <thead class="text-center" style="background-color:#f2f2f2;">
