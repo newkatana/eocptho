@@ -2,7 +2,7 @@
 <h3 class="text-white">ข้อมูล AEFI-DDC จังหวัดพัทลุง</h3>
 <h6 class="text-white"><span class="text-white"> ข้อมูลจาก DDC -> 
     <a class="text-white" href="https://e-reports.doe.moph.go.th/aefi"><u>https://e-reports.doe.moph.go.th/aefi</u></a>
-     &nbsp&nbsp&nbsp&nbsp </span>ข้อมูล ณ วันที่ 1 กันยายน 2564 เวลา 16.00 น.<?php 
+     &nbsp&nbsp&nbsp&nbsp </span>ข้อมูล ณ วันที่ 2 กันยายน 2564 เวลา 16.00 น.<?php 
     // $datadate = "SELECT max(date_end) as date FROM vac_timestamp_proc 
     // WHERE vac_timestamp_proc.table_name='eoc' and vac_timestamp_proc.proc_status='1'";
     // $query_time = mysqli_query($con,$datadate);

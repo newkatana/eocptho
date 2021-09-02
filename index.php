@@ -48,7 +48,10 @@
 	</style>
   </head>
   <body style="font-family: 'Sarabun', sans-serif;">
-
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2J6NNF"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
   <?php
                     $process=0;
                     $sql_process="SELECT * FROM vac_timestamp_proc 

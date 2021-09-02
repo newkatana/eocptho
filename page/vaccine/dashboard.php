@@ -67,10 +67,10 @@
                     <?php  echo number_format($row['sDose1'], 0, '.', ',')."/".number_format($row['sTarget'], 0, '.', ',')." คน";
                  } ?></span></p>
                 <hr>
-                <?php   $sql_b = "SELECT vaccine_manufacturer,sum(totala) as totalall FROM eoc_vaccine_brand group by vaccine_manufacturer" ;
+                <?php   $sql_b = "SELECT vaccine_manufacturer,vaccine_manufacturer_id,sum(totala) as totalall FROM eoc_vaccine_brand group by vaccine_manufacturer" ;
                         $query_b = mysqli_query($con,$sql_b);
                         while($row = mysqli_fetch_assoc($query_b)){
-                            echo '<b>'.$row['vaccine_manufacturer']." &nbsp".number_format($row['totalall'],0,'.',',')." &nbspโดส".'</b>';
+                            echo '<b><img src="images/'.$row['vaccine_manufacturer_id'].'.png" style="width:20px">&nbsp'.$row['vaccine_manufacturer']." &nbsp".number_format($row['totalall'],0,'.',',')." &nbspโดส".'</b>';
                             $vaccine_manufacturer = $row['vaccine_manufacturer'];
                             
                             // ย่อย

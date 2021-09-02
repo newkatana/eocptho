@@ -1,6 +1,15 @@
 <?php
 require_once 'db.php';
 
+// ดึงวันที่ปัจจุบัน
+$datadate = "SELECT max(date_end) as date FROM vac_timestamp_proc 
+WHERE vac_timestamp_proc.table_name='eoc' and vac_timestamp_proc.proc_status='1'";
+$query_time = mysqli_query($con,$datadate);
+$date_current;
+while($row = mysqli_fetch_assoc($query_time)){
+  $date_current=DateThai(date($row['date']));
+}
+
 $sql = "SELECT eoc_target.ref_hospital_name,eoc_target.hospital_code,SUM(target) as sTarget,
 SUM(Dose1) as sDose1,SUM(Dose2) as sDose2,SUM(Dose3) as sDose3,SUM(Total) as sTotal
 FROM eoc_target
@@ -17,7 +26,8 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
     if (mysqli_num_rows($result) > 0) {
         
         while($row = mysqli_fetch_assoc($result)) {
-            $ref_hospital_name[] = $row['ref_hospital_name'];
+            // $ref_hospital_name[] = $row['ref_hospital_name'];
+            $ref_hospital_name[] = str_replace("โรงพยาบาลศรีนครินทร์(ปัญญานันทภิขุ)","โรงพยาบาลศรีนครินทร์",$row['ref_hospital_name']);
             $target[] = $row['sTarget'];
             $dose1[] = number_format($row['sDose1']/$row['sTarget']*100, 2, '.', ',');
             $dose2[] = number_format($row['sDose2']/$row['sTarget']*100, 2, '.', ',');
@@ -150,7 +160,7 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
         dataLabels: {
         enabled: true,
         formatter: function(val) {
-          return val + "%";
+          return val;
         },
         offsetY: -20,
         style: {
@@ -164,8 +174,18 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
           colors: ['transparent']
         },
         title: {
-          text: 'ร้อยละของผู้ได้รับวัคซีนทั้งหมดเทียบเป้าหมาย แยกรายโรงพยาบาล แยกเข็ม',
+          <?php
+              $dt=$pieces = explode("เวลา", $date_current);
+          ?>
+          // text: 'ร้อยละของผู้ได้รับวัคซีนทั้งหมดเทียบเป้าหมาย แยกรายโรงพยาบาล แยกเข็ม',
+          <?php echo "text: ['ร้อยละของผู้ได้รับวัคซีนทั้งหมดเทียบเป้าหมาย','แยกรายอำเภอ จังหวัดพัทลุง ข้อมูล ณ วันที่ {$dt[0]}'],"; ?>
           align: 'center',
+          style: {
+            fontSize:  '20px',
+            fontWeight:  'bold',
+            fontFamily:  undefined,
+            color:  'blue'
+          },
           // offsetX: 110
         },
         xaxis: {
@@ -189,7 +209,7 @@ group by ref_hospital_name ORDER BY hospital_code"; //คำสั่ง เล�
         tooltip: {
           y: {
             formatter: function (val) {
-              return val + " %"
+              return val;
             }
           }
         }

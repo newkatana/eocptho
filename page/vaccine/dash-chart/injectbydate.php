@@ -51,8 +51,10 @@ var options = {
           chart: {
           width: '100%',
           height: 380,
-          type: 'bar'
+          type: 'area',
+          stacked: false,
         },
+        colors:['#ffb31a', '#4db8ff', '#ff8080', '#00ffcc'],
         plotOptions: {
           bar: {
             horizontal: false,
@@ -64,10 +66,11 @@ var options = {
           enabled: false
         },
         stroke: {
+          show: false,
           curve: 'smooth'
         },
         xaxis: {
-          type: 'datetime',
+          type: 'text',
           categories: <?=json_encode($title);?>
         },
         title: {
