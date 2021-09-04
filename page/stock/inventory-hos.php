@@ -59,7 +59,7 @@ $query_hos = mysqli_query($con,$sql_hos);
 while($row = mysqli_fetch_assoc($query_hos)){
     echo $row['ref_hospital_name'];
                     } ?>
-<table class="table table-bordered table-sm" id="invent-hos">
+<table class="table table-bordered table-sm table-hover" id="invent-hos">
     <thead class="text-center" style="background-color:#f2f2f2;">
         <tr>
             <th rowspan="2" style="min-width: 100px;">วันที่</th>
@@ -67,8 +67,15 @@ while($row = mysqli_fetch_assoc($query_hos)){
             <th colspan="6">AZ</th>
             <th colspan="6">PZ</th>
             <th colspan="6">SP</th>
+            <th colspan="6">Total</th>
         </tr>
         <tr>
+            <th>รับ</th>
+            <th>ฉีด</th>
+            <th>รับสะสม</th>
+            <th>ฉีดสะสม</th>
+            <th>เสียสะสม</th>
+            <th>เหลือ</th>
             <th>รับ</th>
             <th>ฉีด</th>
             <th>รับสะสม</th>
@@ -125,7 +132,8 @@ while($row = mysqli_fetch_assoc($query_hos)){
                     FROM visit_immunization 
                     WHERE hospital_code = $vacbrand
                     GROUP BY hospital_code,immunization_date) t3
-            ON t1.alldate = t3.immunization_date";
+            ON t1.alldate = t3.immunization_date
+            ORDER BY t1.alldate asc ";
             $query_stock = mysqli_query($con,$sql_stock);
                 $recieve_sv = 0;
                 $recieve_az = 0;
@@ -160,25 +168,31 @@ while($row = mysqli_fetch_assoc($query_hos)){
             <td><?php echo number_format($recieve_sv,0,'.',',') ; ?></td>
             <td><?php echo number_format($inject_sv,0,'.',',') ; ?></td>
             <td><?php echo number_format($broke_sv,0,'.',',') ; ?></td>
-            <td><?php echo number_format($recieve_sv-$inject_sv-$broke_sv,0,'.',',') ; ?></td>
+            <td style="background-color:#f2f2f2;"><?php echo number_format($recieve_sv-$inject_sv-$broke_sv,0,'.',',') ; ?></td>
             <td><?php echo number_format($row['recieve_az'],0,'.',',') ; ?></td>
             <td><?php echo number_format($row['inject_az'],0,'.',',') ; ?></td>
             <td><?php echo number_format($recieve_az,0,'.',',') ; ?></td>
             <td><?php echo number_format($inject_az,0,'.',',') ; ?></td>
             <td><?php echo number_format($broke_az,0,'.',',') ; ?></td>
-            <td><?php echo number_format($recieve_az-$inject_az-$broke_az,0,'.',',') ; ?></td>
+            <td style="background-color:#f2f2f2;"><?php echo number_format($recieve_az-$inject_az-$broke_az,0,'.',',') ; ?></td>
             <td><?php echo number_format($row['recieve_pz'],0,'.',',') ; ?></td>
             <td><?php echo number_format($row['inject_pz'],0,'.',',') ; ?></td>
             <td><?php echo number_format($recieve_pz,0,'.',',') ; ?></td>
             <td><?php echo number_format($inject_pz,0,'.',',') ; ?></td>
             <td><?php echo number_format($broke_pz,0,'.',',') ; ?></td>
-            <td><?php echo number_format($recieve_pz-$inject_pz-$broke_pz,0,'.',',') ; ?></td>
+            <td style="background-color:#f2f2f2;"><?php echo number_format($recieve_pz-$inject_pz-$broke_pz,0,'.',',') ; ?></td>
             <td><?php echo number_format($row['recieve_sp'],0,'.',',') ; ?></td>
             <td><?php echo number_format($row['inject_sp'],0,'.',',') ; ?></td>
             <td><?php echo number_format($recieve_sp,0,'.',',') ; ?></td>
             <td><?php echo number_format($inject_sp,0,'.',',') ; ?></td>
             <td><?php echo number_format($broke_sp,0,'.',',') ; ?></td>
-            <td><?php echo number_format($recieve_sp-$inject_sp-$broke_sp,0,'.',',') ; ?></td>
+            <td style="background-color:#f2f2f2;"><?php echo number_format($recieve_sp-$inject_sp-$broke_sp,0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['recieve_sv']+$row['recieve_az']+$row['recieve_pz']+$row['recieve_sp'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['inject_sv']+$row['inject_az']+$row['inject_pz']+$row['inject_sp'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($recieve_sv+$recieve_az+$recieve_pz+$recieve_sp,0,'.',',') ; ?></td>
+            <td><?php echo number_format($inject_sv+$inject_az+$inject_pz+$inject_sp,0,'.',',') ; ?></td>
+            <td><?php echo number_format($broke_sv+$broke_az+$broke_pz+$broke_sp,0,'.',',') ; ?></td>
+            <td style="background-color:#f2f2f2;"><?php echo number_format(($recieve_sv+$recieve_az+$recieve_pz+$recieve_sp)-($inject_sv+$inject_az+$inject_pz+$inject_sp)-($broke_sv+$broke_az+$broke_pz+$broke_sp),0,'.',',') ; ?></td>
         </tr>
         <?php } ?>
     </tbody>

@@ -208,7 +208,7 @@
 	<script>
 		$(document).ready(function() {
 		var table = $('#invent-summary').DataTable( {
-			order: [],
+			order: [[ 0, 'asc' ]],
 			lengthChange: true,
 			searching: false,
 			pageLength: 15,
@@ -226,22 +226,20 @@
 <script>
 		$(document).ready(function() {
 		var table = $('#invent-hos').DataTable( {
-			order: [],
+			order: [[ 0, 'asc' ]],
 			lengthChange: true,
 			searching: false,
 			pageLength: 15,
 			buttons: [ 'copy',{
                 extend: 'excelHtml5',
-                title: <?php $nndate = "summary_".date("Y/m/d"); echo json_encode($nndate).json_encode($vacbrand);?>
+                title: <?php $xxdate = "summary_".$vacbrand."_".date("Y-m-d"); echo json_encode($xxdate);?>
             } ]
 		} ).page('last').draw('page');
 	
 		table.buttons().container()
-			.appendTo( '#invent-summary_wrapper .col-md-6:eq(0)' );
+			.appendTo( '#invent-hos_wrapper .col-md-6:eq(0)' );
 		} );
 	</script>
-
-
 <?php
                     }else{
                         echo "<center><div class=\"parent\"><img class=\"child\" src='images/moph-logo.gif'  ></div><br></center>";
