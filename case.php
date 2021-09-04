@@ -23,6 +23,8 @@ switch($page){
     break;
     case "inventory-summary": require 'page/stock/summary.php';
     break;
+    case "inventory-hos": require 'page/stock/inventory-hos.php';
+    break;
     
 
     case "report": require 'report.php';

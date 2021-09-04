@@ -97,8 +97,8 @@
 			  <li>
 	            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">คงคลัง</a>
 	            <ul class="collapse list-unstyled show" id="pageSubmenu3">
-					<li><a href="index.php?page=inventory"><span class=""></span>วัคซีนคงเหลือรายวัน</a></li>
-					<li><a href="index.php?page=inventory-summary"><span class=""></span>สรุปรวมยอดวัคซีนคงเหลือ</a></li>
+					<li><a href="index.php?page=inventory-summary"><span class=""></span>ยอดวัคซีนคงเหลือ</a></li>
+					<li><a href="index.php?page=inventory-hos"><span class=""></span>ยอดวัคซีนคงเหลือแยกโรงพยาบาล</a></li>
 					<li><a href="index.php?page=vaccine-daily"><span class=""></span>รายงานสถานการณ์รายวัน 608</a></li>
 	            </ul>
 	          </li>
@@ -209,14 +209,32 @@
 		$(document).ready(function() {
 		var table = $('#invent-summary').DataTable( {
 			order: [],
-			lengthChange: false,
+			lengthChange: true,
 			searching: false,
-			pageLength: 10,
+			pageLength: 15,
 			buttons: [ 'copy',{
                 extend: 'excelHtml5',
-                title: <?php $nndate = "vaccine_summary_".date("Y/m/d_H:i:s"); echo json_encode($nndate);?>
+                title: <?php $nndate = "summary_".date("Y/m/d_H:i:s"); echo json_encode($nndate);?>
             } ]
+		} ).page('last').draw('page');
+	
+		table.buttons().container()
+			.appendTo( '#invent-summary_wrapper .col-md-6:eq(0)' );
 		} );
+	</script>
+
+<script>
+		$(document).ready(function() {
+		var table = $('#invent-hos').DataTable( {
+			order: [],
+			lengthChange: true,
+			searching: false,
+			pageLength: 15,
+			buttons: [ 'copy',{
+                extend: 'excelHtml5',
+                title: <?php $nndate = "summary_".date("Y/m/d"); echo json_encode($nndate).json_encode($vacbrand);?>
+            } ]
+		} ).page('last').draw('page');
 	
 		table.buttons().container()
 			.appendTo( '#invent-summary_wrapper .col-md-6:eq(0)' );

@@ -37,6 +37,62 @@
 </form> 
 
 <?php //echo $sdate;?>
+
+<div class="my-3"><h5 class="font-weight-bold text-primary"> วัคซีนคงเหลือวันที่ <?php echo DateThai2($sdate); ?></div>
+<table class="table table-bordered table-sm">
+    <thead class="text-center" style="background-color:#f2f2f2;">
+        <th>โรงพยาบาล</th>
+        <th>จำนวนรับวัคซีน( Dose)</th>
+        <th>วัคซีนคงเหลือ (Dose)</th>
+        <th>Sinovac</th>
+        <th>AstraZeneca</th>
+        <th>Sinopharm</th>
+        <th>Pfizer</th>
+    </thead>
+    <tbody>
+        <?php 
+            $sql_stock = "SELECT * FROM eoc_vaccine_stock WHERE datadate = '$sdate' order by number";
+            $query_stock = mysqli_query($con,$sql_stock);
+            while($row = mysqli_fetch_assoc($query_stock)){?>
+        <tr class="text-right">
+            <td class="text-left"><?php echo $row['hospital_name'] ; ?></td>
+            <td><?php echo number_format($row['income'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['instock'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['vaccine_sv'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['vaccine_az'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['vaccine_sp'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['vaccine_pz'],0,'.',',') ; ?></td>
+        </tr>
+        <?php } ?>
+    </tbody>
+    <tfooter>
+        <?php 
+            $sql_stock_sum = "SELECT 
+            number,hospital_code,hospital_name,province,
+            sum(income) as s_income,
+            sum(instock) as s_instock,
+            sum(vaccine_sv) as s_vaccine_sv,
+            sum(vaccine_az) as s_vaccine_az,
+            sum(vaccine_sp) as s_vaccine_sp,
+            sum(vaccine_pz) as s_vaccine_pz,
+            datadate 
+            FROM 
+            eoc_vaccine_stock
+            where datadate = '$sdate'";
+            $query_stock_sum = mysqli_query($con,$sql_stock_sum);
+            while($row = mysqli_fetch_assoc($query_stock_sum)){?>
+        <tr class="text-right">
+            <td class="text-center"><?php echo "รวม" ; ?></td>
+            <td><?php echo number_format($row['s_income'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['s_instock'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['s_vaccine_sv'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['s_vaccine_az'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['s_vaccine_sp'],0,'.',',') ; ?></td>
+            <td><?php echo number_format($row['s_vaccine_pz'],0,'.',',') ; ?></td>
+        </tr>
+        <?php } ?>
+    </tfooter>
+
 </table>
 <div class="my-3"><h5 class="font-weight-bold text-primary"> การฉีดวัคซีนกลุ่มเป้าหมาย 608 วันที่ <?php echo DateThai2($sdate); ?></div>
 <table class="table table-bordered table-sm">
