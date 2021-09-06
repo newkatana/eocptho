@@ -36,8 +36,6 @@
     </div>
 </form> 
 
-<?php //echo $sdate;?>
-</table>
 <div class="my-3"><h5 class="font-weight-bold text-primary"> การฉีดวัคซีนกลุ่มเป้าหมาย 608 วันที่ <?php echo DateThai2($sdate); ?></div>
 <table class="table table-bordered table-sm">
     <thead class="text-center" style="background-color:#f2f2f2;">

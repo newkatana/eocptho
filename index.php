@@ -193,6 +193,7 @@
 			order: [],
 			lengthChange: false,
 			paging: false,
+			ordering: false,
 			info: false,
 			searching: false,
 			buttons: [ 'copy', {
@@ -211,6 +212,7 @@
 			order: [[ 0, 'asc' ]],
 			lengthChange: true,
 			searching: false,
+			ordering: false,
 			pageLength: 15,
 			buttons: [ 'copy',{
                 extend: 'excelHtml5',
@@ -229,6 +231,7 @@
 			order: [[ 0, 'asc' ]],
 			lengthChange: true,
 			searching: false,
+			ordering: false,
 			pageLength: 15,
 			buttons: [ 'copy',{
                 extend: 'excelHtml5',
