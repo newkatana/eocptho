@@ -63,7 +63,7 @@
                 $query_group_b = mysqli_query($con,$sql_group_b);
                 while($row = mysqli_fetch_assoc($query_group_b)){ ?>
                 <tr class="text-right">
-                    <td class="text-right"><?php  echo "รวม"; ?></td>
+                    <td class="text-center"><?php  echo "รวม"; ?></td>
                     <td><?php echo number_format($row['starget'],0,'.',','); ?></td>
                     <td><?php echo number_format($row['sDose1'],0,'.',','); ?></td>
                     <td><?php percentbar2($row['sDose1']/$row['starget']); ?></td>

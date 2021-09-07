@@ -106,7 +106,7 @@ function percentbar2($percen) { ?>
         <p class="progress-label"><?php 
         if(number_format($percen*100,2,'.',',')>=100){
             echo '100.00';} else{
-        echo number_format($percen*100,2,'.',',');} ?>%</p>
+        echo number_format($percen*100,2,'.',',');} ?></p>
     </div>
 </div>
 <?php } 
