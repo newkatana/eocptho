@@ -65,51 +65,96 @@ function DateThai($strDate)
         // return "$strDay $strMonthThai $strYear, $strHour:$strMinute";
         return "$strDay $strMonthThai $strYear";
     }
-    function percentbar($percen) { ?> 
-        <div id="progressbar">
-            <div style="
-                <?php 
-                if($percen*100 <= 50){
-                    echo "background-color: #ff1a1a;";
-                } else if($percen*100 <= 69){
-                    echo "background-color: #ffcc00;";
-                } else {
-                    echo "background-color: #66ff33;";
-                }
-                ?> height: 20px; width: <?php
-                    if(number_format($percen*100,2,'.',',')>=100){
-                        echo '100';} else{ echo number_format($percen*100,2,'.',',');  }
-                                    ?>%">
-                <p class="progress-label"><?php 
+    function percentbar($percen) { 
+        
+                $id;
+                $color;
+                $id=(rand());
+                
+                if(number_format($percen*100,0,'.',',')<=50)                
+                    $color="red";
+                else  if((number_format($percen*100,0,'.',',')>50) && (number_format($percen*100,0,'.',',')<=69))                
+                    $color="yellow";
+                else if(number_format($percen*100,0,'.',',')>=70)                
+                    $color="#8bc34a";
+?>    
+
+                <style>
+                    <?php echo"#progressbar{$id}{
+                        text-align: center;
+                        background-color: #f2f2f2;
+                        padding: 0px;
+                        position: relative;
+                    }
+                    #progressbar{$id}>div {
+                        background-color: {$color};
+                        height: 20px;
+                    }";
+                    ?>
+                </style>
+
+                
+            
+            <!-- ################################################################################## -->
+
+        <?php echo"<div id=\"progressbar{$id}\";  >"; ?>
+            <div style="width: <?php
                 if(number_format($percen*100,2,'.',',')>=100){
-                    echo '100.00';} else{
-                echo number_format($percen*100,2,'.',',');} ?>%</p>
-            </div>
+                    echo '100';} else{ echo number_format($percen*100,2,'.',',');  }
+                                ?>%">
+            <p class="progress-label{$id}"><?php 
+            if(number_format($percen*100,2,'.',',')>=100){
+                echo '100.00';} else{
+            echo number_format($percen*100,2,'.',',');} ?>%</p>
         </div>
+    </div>
     <?php } 
 
-function percentbar2($percen) { ?> 
-    <div id="progressbar">
-        <div style="
-        <?php 
-        if($percen*100 <= 50){
-            echo "background-color: #ff1a1a;";
-        } else if($percen*100 <= 69){
-            echo "background-color: #ffcc00;";
-        } else {
-            echo "background-color: #66ff33;";
+function percentbar2($percen) { 
+        
+    $id;
+    $color;
+    $id=(rand());
+    
+    if(number_format($percen*100,0,'.',',')<=50)                
+        $color="red";
+    else  if((number_format($percen*100,0,'.',',')>50) && (number_format($percen*100,0,'.',',')<=69))                
+        $color="yellow";
+    else if(number_format($percen*100,0,'.',',')>=70)                
+        $color="#8bc34a";
+?>    
+
+    <style>
+        <?php echo"#progressbar{$id}{
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 0px;
+            position: relative;
         }
-        ?> height: 20px; width: <?php
-            if(number_format($percen*100,2,'.',',')>=100){
-                echo '100';} else{ echo number_format($percen*100,2,'.',',');  }
-                            ?>%">
-        <p class="progress-label"><?php 
-        if(number_format($percen*100,2,'.',',')>=100){
-            echo '100.00';} else{
-        echo number_format($percen*100,2,'.',',');} ?>%</p>
-    </div>
+        #progressbar{$id}>div {
+            background-color: {$color};
+            height: 20px;
+        }";
+        ?>
+    </style>
+
+    
+
+<!-- ################################################################################## -->
+
+<?php echo"<div id=\"progressbar{$id}\";  >"; ?>
+<div style="width: <?php
+    if(number_format($percen*100,2,'.',',')>=100){
+        echo '100';} else{ echo number_format($percen*100,2,'.',',');  }
+                    ?>%">
+<p class="progress-label{$id}"><?php 
+if(number_format($percen*100,2,'.',',')>=100){
+    echo '100.00';} else{
+echo number_format($percen*100,2,'.',',');} ?></p>
+</div>
 </div>
 <?php } 
+
 
 
 ?>

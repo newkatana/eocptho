@@ -68,22 +68,12 @@
             <td><?php echo number_format($row['group4'],0,'.',',') ; ?></td>
             <td><?php echo number_format($row['group8'],0,'.',',') ; ?></td>
             <td><?php echo number_format($row['stotal'],0,'.',',') ; ?></td>
-            <td>
-            <div id="progressbar">
-                <div style="width: <?php
-                if($row['rate']==NULL){ echo "0" ;}else{
-                    if(number_format($row['stotal']/$row['rate']*100,2,'.',',')>=100){
-                            echo '100';} else{ echo number_format($row['stotal']/$row['rate']*100,2,'.',',');  }
-                }
-                                        ?>%">
-                    <p class="progress-label"><?php 
-                if($row['rate']==0){ echo "0" ;}else{
-                    if(number_format($row['stotal']/$row['rate']*100,2,'.',',')>=100){
-                        echo '100.00';} else{
-                    echo number_format($row['stotal']/$row['rate']*100,2,'.',',');}
-                } ?>%</p>
-                </div>
-            </div>
+            <td><?php
+                if($row['rate']==NULL){ ;
+                    percentbar2(0);
+                }else{
+                    percentbar2($row['stotal']/$row['rate']); }
+              ?>
             </td>
         </tr>
         <?php } ?>

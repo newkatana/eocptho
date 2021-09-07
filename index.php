@@ -27,10 +27,10 @@
 		position: relative;
 		}
 
-		#progressbar>div {
+		/* #progressbar>div {
 			background-color: #ffe680;
 			height: 20px;
-		}
+		} */
 
 		.progress-label {
 			font-size: .8em;
@@ -38,8 +38,9 @@
 			margin: 0;
 			left: 0;
 			right: 0;
-			top: 50%;
-			transform: translateY(-50%);
+			text-align: center;
+			/* transform: translateY(-50%); */
+			/* top: 50%; */
 		}
 		h1,h2,h3,h4,h5,h6 {
 			font-family: 'Sarabun', sans-serif;
@@ -92,6 +93,7 @@
 					<li><a href="index.php?page=vaccine-group"><span class=""></span>ข้อมูลสรุปกลุ่มเป้าหมาย</a></li>
 					<li><a href="index.php?page=vaccine-group608"><span class=""></span>ข้อมูลสรุปกลุ่ม608</a></li>
 					<li><a href="index.php?page=vaccine-queue"><span class=""></span>ข้อมูลการจองวัคซีน</a></li>
+					<li><a href="index.php?page=vaccine-onepage"><span class=""></span>Onepage</a></li>
 	            </ul>
 	          </li>
 			  <li>

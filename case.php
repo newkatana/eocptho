@@ -11,6 +11,8 @@ switch($page){
     break;
     case "vaccine-daily": require 'page/stock/daily.php';
     break;
+    case "vaccine-onepage": require 'page/vaccine/onepage.php';
+    break;
     case "aefi-brand": require 'page/aefi/brand.php';
     break;
     case "aefi-time": require 'page/aefi/time.php';
