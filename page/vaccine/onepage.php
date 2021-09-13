@@ -166,7 +166,7 @@
 </div>
 
 <div class="card p-3 border-0" style="background: linear-gradient(to right, #3333cc 0%, #0066ff 100%);">
-<h6 class="text-white text-center"><img src="images/qrweb.png" class="float-left" style="position: absolute; transform: translate(-150%, -60%); width:100px;">ติดต่อสอบถาม สำนักงานสาธารณสุขจังหวัดพัทลุง โทร.074-623127 ต่อ 400,401,305</h6>
+<h6 class="text-white text-center"><img src="images/qrweb.png" class="float-left" style="position: absolute; transform: translate(-150%, -60%); width:100px;">ติดต่อสอบถาม สำนักงานสาธารณสุขจังหวัดพัทลุง โทร.074-613127 ต่อ 400,401,305</h6>
 <h6 class="text-white text-center mb-0 pb-0">ที่มา : ข้อมูล MOPH-Immunization Center</h6>
 </div>
 </div>

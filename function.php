@@ -70,9 +70,9 @@ function DateThai($strDate)
             <div style="
                 <?php 
                 if($percen*100 <= 50){
-                    echo "background-color: #ff1a1a;";
-                } else if($percen*100 <= 69){
-                    echo "background-color: #ffcc00;";
+                    echo "background-color: #eb7a34;";
+                } else if($percen*100 <= 70){
+                    echo "background-color: #e8eb34;";
                 } else {
                     echo "background-color: #66ff33;";
                 }
@@ -83,7 +83,7 @@ function DateThai($strDate)
                 <p class="progress-label"><?php 
                 if(number_format($percen*100,2,'.',',')>=100){
                     echo '100.00';} else{
-                echo number_format($percen*100,2,'.',',');} ?>%</p>
+                echo number_format($percen*100,2,'.',',');} ?></p>
             </div>
         </div>
     <?php } 
@@ -93,9 +93,9 @@ function percentbar2($percen) { ?>
         <div style="
         <?php 
         if($percen*100 <= 50){
-            echo "background-color: #ff1a1a;";
-        } else if($percen*100 <= 69){
-            echo "background-color: #ffcc00;";
+            echo "background-color: #eb7a34;";
+        } else if($percen*100 <= 70){
+            echo "background-color: #e8eb34;";
         } else {
             echo "background-color: #66ff33;";
         }
