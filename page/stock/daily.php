@@ -210,7 +210,7 @@ FROM eoc_vaccine_dategroup_plan  WHERE immunization_date = '$sdate' ";
             <td><?php echo number_format($row['stotal3'],0,'.',',') ; ?></td>
             <td><?php echo number_format($row['stotal'],0,'.',',') ; ?></td>
             <td><?php
-                if($row['rate1']==NULL){ ;
+                if($row['rate1']== NULL || $row['stotal1']== 0){ ;
                     percentbar2(0);
                 }else{
                     percentbar2($row['stotal1']/$row['rate1']); }

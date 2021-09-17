@@ -94,6 +94,7 @@
 					<li><a href="index.php?page=vaccine-group608"><span class=""></span>ข้อมูลสรุปกลุ่ม608</a></li>
 					<li><a href="index.php?page=vaccine-queue"><span class=""></span>ข้อมูลการจองวัคซีน</a></li>
 					<li><a href="index.php?page=vaccine-onepage"><span class=""></span>Onepage</a></li>
+					<!--<li><a href="index.php?page=vaccine-corporate"><span class=""></span><?php echo datetime('2021-09-16','5'); ?> Corporate</a></li>-->
 	            </ul>
 	          </li>
 			  <li>
@@ -187,6 +188,18 @@
 	
 		table.buttons().container()
 			.appendTo( '#queue_wrapper .col-md-6:eq(0)' );
+		} );
+	</script>
+	<script>
+		$(document).ready(function() {
+		var table = $('#corporate').DataTable( {
+			lengthChange: false,
+			"pageLength": 11,
+			buttons: [ 'copy', 'excel' ]
+		} );
+	
+		table.buttons().container()
+			.appendTo( '#corporate_wrapper .col-md-6:eq(0)' );
 		} );
 	</script>
 	<script>

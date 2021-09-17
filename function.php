@@ -112,4 +112,16 @@ function percentbar2($percen) { ?>
 <?php } 
 
 
+// function news icon
+    // datetime("2021-07-17",5);
+    $numdate_news=5;
+    function datetime($date_create,$date_num){
+        $now = time(); // or your date as well
+        $your_date = strtotime($date_create);
+        $datediff = $now - $your_date;
+        return (round($datediff / (60 * 60 * 24))<=$date_num) ? "<img src=\"images/new018.gif\">" : "";
+    }
+
+
+
 ?>

@@ -27,6 +27,8 @@ switch($page){
     break;
     case "inventory-hos": require 'page/stock/inventory-hos.php';
     break;
+    case "vaccine-corporate": require 'page/vaccine/corporate.php';
+    break;
     
 
     case "report": require 'report.php';
