@@ -111,6 +111,37 @@ function percentbar2($percen) { ?>
 </div>
 <?php } 
 
+function percentbar3($percen) { ?> 
+    <div id="progressbar">
+        <div style="
+            <?php 
+            if($percen*100 <= 20){
+                echo "background-color: #b30000;";
+            } else if($percen*100 <= 30){
+                echo "background-color: #b30000;";
+            } else if($percen*100 <= 40){
+                echo "background-color: #ff0000;";
+            } else if($percen*100 <= 50){
+                echo "background-color: #ff6600;";
+            } else if($percen*100 <= 60){
+                echo "background-color: #ffff00;";
+            } else if($percen*100 <= 70){
+                echo "background-color: #ccff33;";
+            } else {
+                echo "background-color: #009933;";
+            }
+            ?> height: 20px; width: <?php
+                if(number_format($percen*100,2,'.',',')>=100){
+                    echo '100';} else{ echo number_format($percen*100,2,'.',',');  }
+                                ?>%">
+            <p class="progress-label"><?php 
+            if(number_format($percen*100,2,'.',',')>=100){
+                echo '100.00';} else{
+            echo number_format($percen*100,2,'.',',');} ?></p>
+        </div>
+    </div>
+<?php } 
+
 
 // function news icon
     // datetime("2021-07-17",5);

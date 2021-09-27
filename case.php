@@ -13,6 +13,12 @@ switch($page){
     break;
     case "vaccine-onepage": require 'page/vaccine/onepage.php';
     break;
+    case "vaccine-cv": require 'page/vaccine/cv.php';
+    break;
+    case "vaccine-area1": require 'page/vaccine/area1.php';
+    break;
+    case "vaccine-area1-608": require 'page/vaccine/area1_608.php';
+    break;
     case "aefi-brand": require 'page/aefi/brand.php';
     break;
     case "aefi-time": require 'page/aefi/time.php';

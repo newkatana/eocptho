@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.bootstrap4.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 	<style>
 		#progressbar {
 		text-align: center;
@@ -94,6 +95,9 @@
 					<li><a href="index.php?page=vaccine-group608"><span class=""></span>ข้อมูลสรุปกลุ่ม608</a></li>
 					<li><a href="index.php?page=vaccine-queue"><span class=""></span>ข้อมูลการจองวัคซีน</a></li>
 					<li><a href="index.php?page=vaccine-onepage"><span class=""></span>Onepage</a></li>
+					<li><a href="index.php?page=vaccine-cv"><span class=""></span>Onepage ทะเบียนราษฎร์</a></li>
+					<li><a href="index.php?page=vaccine-area1"><span class=""></span>ความครอบคลุม(1,3) เข็ม1 แยกพื้นที่</a></li>
+					<li><a href="index.php?page=vaccine-area1-608"><span class=""></span>ความครอบคลุม(1,3) กลุ่ม 608</a></li>
 					<!--<li><a href="index.php?page=vaccine-corporate"><span class=""></span><?php echo datetime('2021-09-16','5'); ?> Corporate</a></li>-->
 	            </ul>
 	          </li>
